@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/*
+
+* js概述
+    style  专门解析css
+    javaScript   专门解析  JS
+
+  js组成
+    ECMAscript   
+        规定了基本的语法、数据类型、流程控制....
+    DOM  
+        document  object  model (文档、对象、模型)
+        能够给你一些方法去操作页面
+    BOM
+        browser object model (浏览器、对象、模型)
+        能够给你一些方法去操作浏览器
+
+* js的使用
+    行内式  <button onclick="alert('你动我了')">点击</button>
+    外链式  <script src="文件地址">
+            在里边加  defer  是在所有元素解析完成之后，再执行JS
+            在里边加  async  是先下载脚本，文档解析不会停止，脚本下载完之后，
+            开始执行脚本，但是脚本窒息性过程，文档则停止解析，直到脚本执行完毕；
+
+    script尽量放在body的上面，是能够获取到页面内容的   **代码从上往下执行
+    如果要在body上边写js     要加windows.onload = function(){}
+        
+    在js中获取元素
+        document.get Element By Id('ID名')  页面中通过ID来获取元素
+        document.getElementsByClassName(类名)   页面中通过类名来获取元素
+        document.getElementsByTagName(元素名)    通过元素名来获取
+        document.querySelector()  可以获取ID  类名  的第一个位置
+        document.querySelectorAll()  可以获取 ID  类名  的全部的东西
+
+
+
+
+
+
+
+
+
+
+*/
+let b = document.querySelectorAll
+</script> 
+</body>
+</html>
