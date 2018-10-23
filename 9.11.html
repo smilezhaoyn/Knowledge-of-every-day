@@ -15,6 +15,10 @@
   js组成
     ECMAscript   
         规定了基本的语法、数据类型、流程控制....
+        数据类型（string,number,boolean,null,undefined,object,symbol）
+        （简单类型的数据和符合类型的数据不是一个空间，
+            简单类型的赋值是赋值，
+            复杂类型的赋值是赋址；）
     DOM  
         document  object  model (文档、对象、模型)
         能够给你一些方法去操作页面
@@ -39,17 +43,64 @@
         document.querySelector()  可以获取ID  类名  的第一个位置
         document.querySelectorAll()  可以获取 ID  类名  的全部的东西
 
+*点击事件
+    点击，鼠标滚轮，触摸屏幕，键盘
+    点击  onclick
+    鼠标移入   onmouseover
 
+*变量
+    可变的量：变量是用来储存数据的，为了复用
+        var (es3)
+        let (es6)
+        class
+*常量
+    const:不可变的量，只要敢变，就报错
 
+*命名规范：
+    大驼峰命名   GetElementById 每个首字母大写
+    小驼峰命名   getElementById 第一个字母小写，后面的字母大写
+    严格区分大小写
+    不能使用关键字或者保留字
+        关键字：当前JS使用的名字
+        保留字：当前没有使用，但是未来有可能使用的名字
 
+* 函数
+    匿名函数(直接写要报错，一般匿名函数都是要给事件使用)
+    function(){ 代码 }
+    匿名函数自执行
+    (function(){ 代码 })()
 
+    有名函数(函数声明)
+    function fn(){ 代码 }
 
+    函数表达式
+    let fn = function(){}  fn();
 
+* 属性操作
+    box.style.width   //读box的宽
+    box.style.width = '200px'    //写入box的宽
+    innerText:操作文本
+    innerHTML:操作元素内部的属性
+    value:操作表单元素value的值
+    a.href:里边加超链接
+    img.src :图片的地址
+    link：css的链接地址
+    className:类
+    id
+* 字符串
+    标准写法 new String()   字符串中有length只能读，不能写
+    ''字符串
+    ``模板字符串  `${}`
+    '' + 任何东西 都是隐式类型转换（除了symbol）
+    （HTML中的所有文本(value,href,src)） 都是字符串
 
+* typeof ：去查看数据类型
+    检测数据类型的方法有
+    （typeof、instanceof、object.prototype.toString、constructor）
+    注意：对象、正则、数组、null 都会输出object
 
 
 */
-let b = document.querySelectorAll
 </script> 
 </body>
 </html>

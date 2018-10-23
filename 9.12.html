@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/*
+    两个js文件中，第一个报错，不会影响第二个js执行。
+
+*typeof
+    typeof能够查看数据类型，查看出来的值为小写的字符串
+        注意：typeof出来的值跟ECMAscript中的结果是有差异的
+    ECMAscript规定的数据类型：
+        number\string\boolean\null\undefined\object\symbol
+    typeof的数据类型
+        number\string\boolean\undefined\object\symbol\function
+
+*点和[]
+    凡是能用到.的地方都能用到[]
+    在中括号的内容可以是字符串也可以是变量，一般对象下使用[],基本上[]中放的是变量
+
+*number
+    正数、负数、浮点数、0都是数字类型
+    Number()  强制类型转换为数字类型，在转换的过程中，会尽量转化为数字。如果转不出来就为NaN
+    可以转换为数字的有（Number\toFixed\parseInt\parseFloat）    
+
+    parseInt把一个字符串尽量转成整数（parseInt转数据类型，除了非空字符串，数字，其他都是NaN）
+    遇到了NaN说明进行了一次非法运算
+
+    parseFloat(字符串)  //将一个字符串转为整数或者小数
+
+    toFixed    //  number.toFixed(num)   保留几位小数，（保留的时候，会看位数，是否+1，四舍五入）
+
+    number数据类型转换
+        true是 1 
+        false\空白数组\null      是 0
+        {}\undefined\正则\变量   是NaN
+
+* 布尔值
+    非0数字为true，非空字符串为true []也是true
+
+*undefined什么时候出现
+    变量没有赋值
+    对象下没有这个属性
+    函数默认的返回值
+    没有实参去访问形参
+    严格模式下的this
+    域解析时候，变量和块中的函数
+
+*null什么时候会出现
+    元素找不到
+    正则中没有匹配项
+    对象销毁
+        给引用数据类型赋值null,清楚当前变量占用的内存
+        let obj = {}; obj = null;
+
+*对象（object）
+    标准写法：new Object  简单写法  {}
+    对象是双花括号，以键值对的方式呈现（key:value）
+        key:是一个字符串
+        value：可以是任意的数据类型，一对数据类型和另一个数据类型以逗号分隔；
+    对象的创建过程
+        申请一定的空间地址（16进制）
+        将value值放到这个堆中
+        把指针指向这个变量 
+    对象中没有length,所以基本上不能用for循环，除非手写length;
+    对象中的删除
+        假删除：obj.name = null;
+        真删除：delete obj.name;
+    console.log('num1' in obj); //查看obj中有没有num1这个属性
+
+*数组
+    标准写法：new Array  简单写法：[]
+    数组有 length,可读可写，数组中可以放任意得数据类型，通过下标来获取。（下标值是从0开始得）
+
+
+
+
+*/
+    
+    
+    
+    
+</script>
+</body>
+</html>
