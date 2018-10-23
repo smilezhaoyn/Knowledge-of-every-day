@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/*
+
+当一个函数被创建的时候，会自动在这个函数内挂一些属性和方法
+常用的：
+    name:函数名
+    prototype:函数下边的原型
+    __proto__属性：函数下边的原型链
+    apply()：改变this指向，自执行函数(第一个参数是改变this指向,第二个是数组（数组中放入实参）)
+    call()：改变this指向，自执行函数(第一个参数是改变this指向,实参)
+    bind()：改变this指向，手动执行(第一个参数是改变this指向,实参)（有无数个参数）
+        返回值为一个函数，并且调用bind()方法是不会自执行的 ，得需要手动执行
+    注意：如果第一个参数为null或者undefined，this指向的是window
+
+arguments实参的集合，类数组[]
+    将类数组转化为数组的方法是 Array.from()
+    用apply展开的方法    let arr = [].concat.apply([],类数组)
+                        let arr = Array.prototype.concat.apply([],类数组)
+    Array.prototype.slice.call
+    [...类数组]
+
+只有对象下才能加属性和方法
+简单类型是不能加属性和方法的，null和undefined加属性 || 方法就报错
+
+函数的返回值
+    每一个函数都有返回值，默认的返回值为 return undefined
+当函数调用的时候，会做两件事
+    1，执行函数体内的代码
+    2，执行返回值
+函数名 + 括号 = return 后面的值 
+当一个运算结果需要在外部访问的时候，就要用return
+
+for循环
+    1，初始化 执行一次
+    2，条件判断 ->true false 上次循环之后都会执行一次
+    3，条件成立进循环体
+    4，改变变量（自增、自减）
+大循环执行一次之后，小循环执行完，再大循环执行一次
+如果是单纯的for套for，2个变量名不能重复
+
+自定义属性：this ->这个  时间绑定的是谁this就是谁
+变量、属性
+    前面没有主  ->  变量
+    前面有主   ->  属性
+函数 ：前面没主   this ->  window
+方法 ：前面有主  this -> 主
+
+this:
+    1,属性的方法
+      this是  点前面的主
+    2,window
+        单纯的函数+括号
+        定时器直接调用此函数
+    3,实例化对象的情况下
+        this是实例
+    4，事件触发的情况下
+        点谁是谁
+    5，"use strict"   严格模式
+        this是undefined
+    //遇到函数，this会发生改变
+
+运算符：
+    除了symbol，别的数据类型 + 字符串都是字符串
+        隐式类型转换，系统偷偷将你给转换   toString
+        alert() 会调用数据的toString方法
+    a || b a不成立一定会去找b，如果a成立就不会去找b
+    a && b a成立一定会去找b,a不成立就不会走b
+
+typeof XX 一元运算符
+a + b 二元运算符
+? :  三目运算符
+
+
+数据类型：
+    内置类：都是 Function构造出来的
+    Object Array String Boolean Number Function Math Date Regexp Undefined Null
+    在数据类型里面除了Undefined和Null不允许查看，其他内置类都能查看到
+
+    Object 都是对象的基类       Function 都是函数包括内置类的基类
+
+
+    基本类型：数字（new Number）\ 字符串（new String）\布尔值（new boolean）\undefined\null
+    复合类型：object symbol 数组
+    new Object   new Array
+数组：
+    数组中可以放任何数据类型
+    有length，即可读，也可写
+    获取里边的值用下标[n]
+    最后一个是 length - 1
+    是从0开始计数的
+
+while(条件){ 执行 }   一般用在不知道要循环多少次
+for in 循环  （枚举每一位）
+    对象没有length,所以只能使用属性遍历的方法，当然，有一种特殊的对象可以使用for循环
+
+
+
+
+
+
+
+*/ 
+
+
+
+</script>   
+</body>
+</html>
