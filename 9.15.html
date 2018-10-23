@@ -29,10 +29,138 @@ BOM:
     通过window提供的一些方法能够赋予开发者操作浏览器的能力
 
     vue,react  路由 核心原理
-    history.go()
-    history.back()
-    hash...
-    懒加载
+    history.go()   后退+刷新
+    history.back()  后退
+    hash...   window.location.hash=hash   
+    调整地址栏地址，使前进、后退按钮能使用
+
+    懒加载：懒加载其实就是延迟加载，是一种对网页性能优化的方式
+
+JS的使用方式
+    行内式：在元素中直接写代码
+    内嵌：在script标签中直接写代码
+    外链：通过script src=""
+            注意：
+            <script src="1.js">alert(321)<script>
+            321是不会执行的
+    一般是使用外链和内嵌式，一般把script放在body结束的上边，因为页面是从上往下执行的代码
+ 
+调试：
+    alert()  调用系统的弹框
+    console.log()  打印代码
+    console.dir()  打印详细的细节
+    document.write('你好吗')  把代码放入到页面
+    debugger  查看执行的过程
+
+获取元素：
+    通过ID方式获取
+        document.getElementById(ID名)  id是字符串，页面中只能有一个ID
+    通过标签名来获取元素
+        document.getElementsByTagName(标签名)  一个获取一组元素（符合类数组）
+    通过class来获取元素  IE9以上浏览器才能支持
+        document.getElementByClassName(类名)  一个获取一组元素（符合类数组）
+    通过各种属性来获取元素（万能选择器）IE9以上浏览器支持
+        querySelector()获取一个
+           querySelector('#box')
+           querySelector('.box')
+        querySelectorAll('') 获取一堆元素
+
+    个人建议，在切换class的时候，不要使用style了，不然优先级的问题容易出错
+         style > div >  class
+    document.getElementsByTagName('*')  通配符
+
+变量：
+    可变的量：为了储存一些数据，为了复用
+    变量名： 首字母不能为数字
+            首字母可以是字母、_、$
+            还不能用关键字、保留字
+            严格区分大小写
+            一般用小驼峰命名
+    关键字：
+        js中已经使用的
+    保留字：
+        js现在没有使用，但是未来会用
+    let ES6
+        暂存死区
+        在声明之后，不然会报错
+        声明之后可以不赋值，默认为undefined
+        变量名不能重复
+常量：
+    不可变的量：存一个固定不变的数据
+    注意：声明之后要立马赋值，不然会报错
+
+let:在一个域中，名字是不可以重复的
+    是作用于块的
+    不会再window上挂属性
+    有暂存死区，在声明的上边访问这个变量，会报错
+    在循环中，每次循环的值，都可以被块保存并且使用
+var:
+    在一个域中，名字是可以重复的
+    是不作用于块的
+    会在window上挂属性
+点和[]
+    凡是能用到点的地方都能用[]
+    []数组  []下标 []范围  []变量  
+
+对象是JS中的一种数据类型
+
+innerHTML 操作元素内容，包含结构，文字
+innerText 操作元素的文本，只有文本
+
+value 可以操作表单中的内容
+
+
+数据类型：
+    简单类型：string\null\boolean\undefined\number
+    符合类型：object\symbol
+null:
+    现在没有将来可能有
+    元素没有获取的到
+    正则没有匹配项
+    对象销毁时候为null
+
+number:正数、负数、浮点数、0
+
+NaN:不是一个数字。如果遇到非法的数学运算就是NaN
+isNaN 是NaN  true:是NaN  false：不是NaN
+
+typeof 一元运算符，转化出来的值是（小写的字符串）数据类型
+    检测数据类型（typeof\instanceof\constructor\Object.prototype.toString）
+    Array.isArray()
+
+parseInt(string,位数)  把字符串转为10进制的整数
+parseFloat('string')   把字符串转成数字，转为浮点数
+toFixed  保留几位小数（如果位数+1 >=5 就进1  <5 就舍去）
+    注意：浮点数运算时不精确的
+
+undefined:未定义，现在没有将来也没有
+    1，变量没有赋值
+    2，函数默认的返回值
+    3，对象找不到某个属性
+    4，没有传入实参，访问形参的时候
+    5，严格模式下，this
+    6，域解析时候，变量和块中的函数
+
+函数：
+    函数声明：function fn(){} fn();
+    函数表达式： let fn = function(){}   fn();
+    核心原理：
+        1，开空间
+        2，函数的内容当做字符串存入到堆中
+        3，空间地址赋值给变量
+    步骤：
+        创建函数
+        参数赋值
+        形成新的作用域
+        预解析
+        走上下文
+        变量或参数销毁
+    形参：形式上的参数
+    实参：实实际际的参数
+    参数与参数之间用逗号分隔
+    形参和实参必须要一一对应
+
+arguments 函数实参的集合，类数组
 
 
 
