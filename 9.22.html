@@ -5,6 +5,153 @@
     <title>Document</title>
 </head>
 <body>
-    
+<script>
+/*
+
+基本数据类型：number string boolean null undefined
+符合数据类型：对象 数组 正则  Date 函数 Math
+操作语句：循环语句和判断语句： for循环  for in while
+    for in 一般用于循环数组对象。
+            获取对象的属性名对应的属性值
+            在对象中，所有的属性名都是以字符串形式存在
+            1，对象名.属性名
+            2，对象名[属性名]
+    while 不知道循环多少次
+        函数：定义  返回值 参数  执行 arguments
+        函数分为两个部分： 定义  执行
+    基本数据类型和复合数据类型的区别
+    赋值 赋址，一个是操作值的，一个是操作空间地址的
+函数：
+    1，开辟一个空间地址
+    2，把函数体重的代码当做字符串储存在这个空间下
+    3，把这个空间地址赋值给这个函数名
+执行：
+    1，首先形成一个私有的作用域
+    2，形参赋值
+    3，变量提升
+    4，代码从上到下运行
+    5，栈内存是否销毁
+形参：函数定义的入口
+实参：函数执行的传的参数
+arguments:是函数天生自带的参数集合
+return:1，把函数中的值返回出去 2，终止代码运行
+
+在函数中定义的变量都是私有变量；函数体内的变量外界是不可以访问到的
+
+数组的方法：
+    pop:
+        删除数组的最后一项
+        不需要传参数
+        原有数组发生改变
+        返回值是删除的那一项
+    push:
+        向数组的末尾新增一项
+        需要传参数，传的是新在增的那几项
+        原有数组发生改变
+        新增数组之后的长度
+    shift:
+        删除数组的第一项
+        需要要传参
+        原有数组发生了改变
+        返回值是删除的那一项
+    unshift:
+        向数组的首尾新增一项
+        需要传参数，传的是新增的哪几项
+        原有数组发生了改变
+        返回值是新增数组之后的长度
+    splice:
+        增 删 改
+            splice(m,n)  从索引m开始,不包括n项
+            splice(m,0,m)  新增
+            splice(m,x,n)  修改
+        原有的数组发生了改变
+        返回值是删除的那几项数组
+    slice:排序
+        参数
+            sort(function(a,b){return a-b})  从小到大
+            sort(function(a,b){return b-a})  从大到小
+        原有数组发生了改变
+        返回值是排序之后的数组
+    reverse:
+        将数组的顺序给颠倒过来
+        不需要传参
+        原有数组发生了改变
+        返回值是颠倒之后的数组
+    concat:
+        数组的拼接，将两个不同的数组链接起来，将几项值放在数组的后边
+        不传参数，复制了一个一模一样的数组，传参数，是拼接之后的 数组
+        原有的数组不变
+        返回值是拼接之后的新数组
+    join:
+        按照特定的字符将数组成员链接成一个字符
+        需要传参
+        原有的数组不发生改变
+        返回一个字符串
+    indexOf:
+        返回当前数组成员第一次出现的索引位置
+        需要传参数
+        原有数组不变
+        返回值是当前的索引，如果不存在就返回-1
+    laseIndexOf:
+        返回当前数组成员最后一次出现的索引位置
+        需要传参数
+        原有数组不发生改变
+        返回值是当前的索引，如果不存在就返回-1；
+    forEach map
+        遍历循环
+        forEach 是没有return的，返回值是undefined
+        map有teturn
+        原有数组不变
+        forEach 返回值是undefined  map返回值是一个新的数组
+    every；
+        全部满足  为true,只要有一项不满足就为false 
+    some:
+        只要有一项有就为true,全部都不一样则为false
+    filter:
+        过滤
+DOM获取元素
+    id：是唯一的，不要在一个页面中使用同一个ID
+    在js中获取到的元素是对象数据类型的
+
+    1，getElementById   :  通过ID获取元素
+    2，getElementsByClassName :获取到的是一个集合，是一个类数组，在IE8以下是不兼容的
+    3，getElementsByTagName:通过标签名来获取元素
+    4，querySelector:获取的是唯一的
+    5，qunerySelectorAll:获取全部的，类似于一个类数组
+    6，getElementsByName:通过name属性来回去元素，一般用于表单元素
+
+DOM：document object model(文档 对象  数据)
+    其实就是HTML中的标签，在js中叫元素
+
+    节点类型：四种节点类型，节点都是对象数据类型的；空格和换行都是文本节点
+
+                nodeType        nodeName            nodeValue
+    元素节点        1          大写的标签名             null
+    属性节点        2               
+    文本节点        3             #text              文本的内容
+    注释节点        8             #comment           注释的内容
+    document       9             #document             null
+
+1,childNodes :获取当前元素的所有子节点；类数组
+2，children: 获取当前元素的子元素节点
+3，parentNode:获取当前元素的父亲节点
+    document的父亲节点是null
+4,nextSibling:获取下一个弟弟节点
+    nextElementSibling:获取下一个弟弟的元素节点      IE8以下不兼容
+5，previousSibling:上一个哥哥节点
+    previousElementSibling:上一个哥哥元素节点        IE8以下不兼容
+6，firstChild:第一个子节点
+    firstElementChild:第一个元素节点     IE8以下不兼容
+7，lastChild:最后一个子节点
+    lastElementChild:最后一个子元素节点    IE8以下不兼容
+
+
+
+
+
+
+*/
+
+</script>
 </body>
 </html>
