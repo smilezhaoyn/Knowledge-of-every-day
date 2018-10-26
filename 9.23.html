@@ -58,7 +58,73 @@
     7,  getAttribute： 获取行间属性
         setAttribute:  设置行间属性
         removeAttribute:删除行间属性
+
+递归：
+    用递归的方式求出求1-100之间是3并且是是5倍数的和；
+    function sum(num){
+        if(num<1){
+            return 0;
+        }
+        if(num%3==0 && num%5==0){
+            return num + sum(num-1) 
+        }else{
+            return sum(num-1)
+        }
+
+    }
+
+    let total = sum(100);
+    console.log(total)
+在JS中用单引号或者双引号包起来的内容都是字符串
+有索引值，有length，字符串的运算 特殊 +  字符串的拼接
+字符串的方法：
+    1，charAt：通过索引获取字符
+    2，toUpperCase:把小写字母转成大写字母
+    3，toLowerCase:把大写字母转成小写
+    4，substr:字符串的截取
+    5，substring:字符串截取从索引m开始，截取到索引n;不包含n这一项
+    6，slice：从索引m开始，截取到索引n;不包含n这一项;原有字符串不变；支持负数；
+    7,includes: 检测当前字符串是否存在；存在返回true，不存在返回false；
+    8,indexOf : 检测当前字符串第一次出现的索引位置；如果不存在，返回-1
+    9,lastIndexOf : 检测当前字符串最后一次出现的索引位置；如果不存在，返回-1
+    10,trim  去掉首尾空格
+    11，replace : 字符串的替换
+    // replace(old,new); 用新的字符替换成旧的字符；
+
+随机验证码
+    Math.random  随机数
+    Math.round 向上取整
+    Math.floor 向下取整
+
+1,Math.max :获取一组数的最大值
+2,Math.min :获取一组中最小的值
+3,Math.floor:向下取整
+4,Math.ceil:向上取整
+5,Math.round:四舍五入，保留整数
+6,Math.random 产生一个[0,1]的随机数
+7,产生一个 m - n 之间的随机整数
+    //Math.round(Math.random()*(n-m)+m);
+     //Math.round(Math.random()*(90-40)+40)
+8,Math.pow:取数字的幂次方Math.pow(n,m)  n的m次方
+9,Math.sqrt:开平方
+10,Math.abs:取绝对值
+
+Date:
+    getFullYear() 获取整数年
+    getMonth() [0-11] 当前月的索引  需要+1
+    getDay() [0-6] 星期几  0是星期日
+    getDate()  获取时间日
+    getHours() 获取当前的小时
+    getMinutes() 获取分钟
+    getSeconds()  获取时间秒
+    getMilliseconds() 获取毫秒数
+    getTime() 当前时间距1970-1-1上午8点的毫秒差
+    Date.now() 经常用于时间戳
+
+
+
 */
+
 
 
 
