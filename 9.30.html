@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/*
+
+块级作用域
+    {}对象
+    {}块
+        如果在块中声明函数，此时函数在块的外部会预解析并且
+        值为undefined，当在块中访问这个函数的时候，这个函
+        数都可以使用。
+
+作用域链：
+    全局作用域是在最顶层，函数为里层，函数内如果找不到某个变量，
+    那么会去函数的参数中查找，如果还么有，就会去父级找，知道找到
+    全局，如果全局还没有找到，那么就报错，这种关系就叫做作用域链。
+        
+        注意：查找会从里往外找，而不会从外往里找。
+
+如果实参传入的是一个简单类型，那么在函数内修改这个形参，那么外界是
+不会受到任何干扰的，如果传入的是复合类型，那么修改形参的值会影响外界的复合类型；
+
+    注意：如果参数传入的是复合类型，函数内又赋值了一个复合类型，
+        那么。此时是不会对外界干扰的。
+
+在对象中，如果key值和value值的名字是一样的，那么可以只写成一个
+    let obj = {
+        a,
+        b
+    }
+
+单例模式：
+    obj = {name:'',age:111}
+
+高级单例模式：
+    obj = (function(){
+        ...
+        ...
+        return {}
+    })()
+
+工厂模式：
+    function Fn(name){
+        let obj = {}
+        obj.name = name;
+        return obj;
+    }
+
+面向对象：
+    function Fn(name){
+        this.name = name;
+    }
+    new Fn('呵呵哒');
+
+面向对象：
+    把相同的代码归为一类（归类），
+    把他们公用的属性或者方法挂在
+    原型上的一种开发思想
+
+
+原型：
+    prototype
+    函数（一般函数，构造函数）下边有这个属性
+    这样的 值为对象
+
+    实例化对象上没有某个属性和方法的时候，
+    还会去构造函数的原型下去找这个属性和方法
+
+*** 构造函数的原型和方法只给它的实例化对象用。
+
+原型：
+    prototype，函数下才有prototype
+    但是函数是一个特殊的对象
+        它是new Function 的实例化对象
+            new Function()  ->  function
+        既有原型也有原型链
+    
+    原型链：
+        __proto__ 
+        实例化对象身上才有__proto__
+
+        原型链是实例化对象与构造函数原型的桥梁
+
+        关系：构造函数的原型 === 实例化对象的原型链
+
+    先找原型链 -> 构造函数的原型 -> 构造函数的原型的原型链 -> Object.prototype
+
+
+
+函数的三种角色：
+    第一种：
+        普通函数（声明，调用）
+    第二种：
+        类（this是实例化对象）
+        类.prototype
+    第三种：
+        对象
+        它是Function的实例化对象 __proto__
+
+
+Number\Object\String\Function\Boolean
+Array\Undefined\Null\Math
+Date\RegExp....  内置类
+
+在数据类型里面，除了Undefined\Null是不允许查看以外，别的内置类都能查看得到
+
+1 createElement（）  创建一个元素；
+   参数：字符串 是一个标签名；
+2 appendChild()  向元素的末尾添加一个子节点；
+  容器.appendChild(新元素)
+3 removerChild()  删除一个子节点；接收一个节点类型的
+ 参数 是要删除的这个元素；
+4 replaceChild() 替换子节点；
+   replaceChild(new,old)用新的元素替换原有的元素
+5 insertBefore() 将新的元素插入到指定元素的的前面；
+   insertBefore(new,old)
+6 cloneNode()  克隆元素；接收一个布尔类型的参数
+  默认浅克隆 (false)，深克隆(true);
+7 getAttribute() 通过属性名获取属性值；获取行间属性
+8 setAtttribute() 设置属性名；设置行间属性；
+9 removerAttribute()  删除行间属性；
+
+
+检测数据类型有哪些？
+    typeof
+    instanceof
+    Object.prototype.toString.call
+    constructor
+    
+箭头函数的this指向父级
+
+hasOwnProperty
+    是不是自身的属性
+    obj.hasOwnProperty(属性)   //布尔值
+    是自身的属性就为true
+    不是自身的属性就为false
+枚举会是遍历原型链的，直到Object.prototype;
+
+
+constructor:
+    它是对象 __proto__ 下自带的属性，这个属性默认指向构造函数
+
+constructor很容易被修改的
+
+在xx.prototype = {}  原型模式下constructor会被指向Object
+因为把一个对象赋址给了xx.prototype。
+
+解决:
+    手动修正constructor指向
+
+    {
+        constructor:构造函数
+                }
+
+*/
+
+
+</script>  
+</body>
+</html>
