@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /*
+    try.catch能够捕获JS异常
+    try中放入可能会报错的JS语句，不报错永远不进catch
+    catch(error)如果报错了走那句
+    error就是报错的细节
+    常用在第一套方案出错，用第二套方案解决
+
+    输出报错信息：
+        throw new Error(可以填入报错的信息)
+
+    DOM映射：
+        js元素和DOM的元素是一一对应的，操作元素的时候不是重新创建的一个元素，
+        而是把对应的元素拿来操作。
+
+    DMO回流：
+        当页面的元素发生了几何变化的时候（宽、高、位置、创建元素），都是会导致
+        整个页面重排，浏览器会重新计算结构位置，重新渲染页面，这就叫做DOM回流，
+        DOM操作是非常消耗性能，所以尽量减少DOM的操作。
+    DOM重绘：
+        就是改变了背景颜色、边框、字体的颜色，浏览器重绘绘制颜色的过程。
+
+    createDocumentFragment:文档碎片
+        在盒子里边可以放入若干个元素，最后打包一次性塞到页面中
+        如果添加内容，通过appendChild添加
+
+    JSON是一种数据格式，它本质是字符串，长的像JS中的对象
+
+    一般json数据都是后端给的
+
+    JSON.parse()高版本浏览器才能使用  低版本使用json2.js
+    可以将json格式的数据转成JS中的对象。
+
+注意：
+    使用JSON.parse()时候必须保证json是标准格式的，
+    key值必须有双引号，value值为字符串的也要为双引号
+    key值单引号会报错。
+
+    eval()
+        能够把字符串尽量转成JS能够运行的代('('+ json +')')
+注意：eval是有可能被注入病毒的
+
+    new Function('','return' + json)()  也能解决这个问题
+
+    JSON.stringify   把对象转化为标准的JSON
+    注意：undefined\函数是转不出来的
+
+
+    简单类型下是不可以直接加属性和方法的，就算是添加也是undefined
+    使用内置类构造的简单类型下的属性是只能读不能写的
+
+    包装对象：
+        当去使用简单类型的属性和方法的时候，简单类型会自动转成对象属性
+        调用此数据的属性或者方法，之后自动销毁。
+
+
+this
+    window:单纯的函数名加括号
+        定时器直接调用此函数
+    属性的情况下：
+        this就是点前边的主
+    实例化对象的情况
+        this就是实例
+    事件触发谁的情况
+        事件触发谁就是谁
+    undefined
+        严格模式下，this是undefined
+
+    遇到函数this就可能发生变化
+
+
+继承：
+    属性继承：
+        类式继承（call继承）
+        调用父类通过call，改变this指向
+
+        function Person(say,name,age){
+        this.say = say;
+        this.name = name;
+        this.age = age;
+        console.log(this);
+        }
+        Person.prototype.runing = function(){
+            alert(this.name+'会跑');
+        }
+
+        function Coder(say,name,age){
+            Person.call(this,say,name,age);
+        }
+
+        let p1 = new Person('大渣好','渣渣辉',40);
+
+        let c1 = new Coder('我是程序猿','abc',12);
+
+
+    方法继承
+        拷贝继承 for(let attr in 父类.prototype)
+
+        function Person(say,name,age){
+        this.say = say;
+        this.name = name;
+        this.age = age;
+        console.log(this);
+        }
+        Person.prototype.runing = function(){
+            alert(this.name+'会跑');
+        }
+        
+        Person.prototype.ygj = function(){
+            alert('用工具的');
+        }
+        Person.prototype.singer = function(){
+            alert('唱讲真的');
+        }
+
+        function Coder(say,name,age){
+            Person.call(this,say,name,age);
+        }
+
+        for in会枚举整个原型链，能把非父级身上的方法拷贝下来
+        for(let attr in Person.prototype){
+        //必须保证赋值的数据是父级自身的属性
+        if(Person.prototype.hasOwnProperty(attr)){
+            Coder.prototype[attr] = Person.prototype[attr];
+        }
+        }
+        
+        //单独的Coder和上边跑不一样  它可以重新写  将上边改掉，但是
+        不会影响Person的跑
+        Coder.prototype.runing = function(){
+        alert(this.name+'脚踏七彩云');
+        }
+
+原型继承：
+    通过原型和原型链继承
+
+    function Person(say,name,age){
+        this.say = say;
+        this.name = name;
+        this.age = age;
+        console.log(this);
+    }
+    Person.prototype.runing = function(){
+        alert(this.name+'会跑');
+    }
+
+    function paohui(){}
+    paohui.prototype = Person.prototype;
+    Coder.prototype = new paohui;
+    
+    function Coder(say,name,age){
+        Person.call(this,say,name,age);
+    }
+    Coder.prototype.constructor = Coder; //手动修正构造函数指针
+
+    Coder.prototype.runing = function(){
+        alert(this.name+'脚踏七彩云');
+    }
+
+
+    let p1 = new Person('大渣好','渣渣辉',40);
+    let c1 = new Coder('我是程序猿','abc',12);
+
+    console.log(c1 instanceof Person); //继承成功了
+    */
+
+</script>
+</body>
+</html>

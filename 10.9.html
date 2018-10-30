@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/*
+数组的方法：
+    查询类：
+        indexOf
+        includes
+        lastIndexOf
+    截取类：
+        slice
+    操作：
+        push
+        pop
+        unshift
+        shift
+        splice
+    链接：
+        join
+        concat
+    循环：
+        forEach
+        map
+        some
+        erery
+        filter
+    翻转：
+        reverse
+    排序：
+        sort
+    
+    字符串方法：
+        查询类：
+            indexOf
+            lastIndexOf
+            includes
+        截取类：
+            slice
+            substring
+            substr
+            charAt
+        切割：
+            split
+        拼接：
+            concat
+        首尾空格：
+            trim
+        大小写：
+            toLowerCase
+            toUpperCase
+    数据类型什么是真什么是假：
+    string,number,boolean,null,undefined,object,symbol
+        真：非空字符串，非0数字，true，object,symbol,function
+        假：空字符串，0，false,null,undefined,NaN
+    
+    检测数据类型的方式？
+        typeof
+        instanceof
+        Object.prototype.toString
+        constructor
+    倒计时原理和时间转化公式
+        未来的时间 - 现在的时间 = 时间差
+        //得到了差的秒数
+        let t = Math.floor((newDate - new Date)/1000)
+        //得到天数
+        let d = Math.floor(t/86400)
+        t%=86400;   //除了天数剩下的秒数
+        //得到小时的时间
+        let h = Math.floor(t/3600);
+        t%=3600;   //除了小时之后，剩下的秒数
+        //得到分钟的时间
+        let m = Math.floor(t/60);
+        t%=60;   //得到最后的秒数
+
+    数组去重
+        [...new Set([1,2,3,5,5,6])]
+    
+    var 和 let 的区别
+
+    var会变量提升，会在全局作用域下挂一个属性，不受限与块，可以重复命名
+    let不会变量提升，有暂存死区，受限与块，不可以重复命名
+
+    闭包：
+        函数套函数，子函数要访问父函数的参数或者变量（作用域链）；
+        并且父函数得在外部使用，此时形成闭包环境。
+
+        局部的参数或者变量不被外界所干扰；
+        让父级的参数或者浏览器不被浏览器垃圾回收
+
+    对面向对象的理解？
+        把相同（功能）的代码抽象出来归为一类，把
+        公共的属性或者方法挂在这个类的原型下的一
+        种思想（编程方式）
+
+    什么是原型  什么是原型链
+
+    原型：
+        一个函数自带的属性，函数的实例化对象找不到某个属性或者
+        方法，一定会去构造函数的原型下边去找。
+    原型链：
+        实例化对象身上自带一个属性
+
+    原型关系链：函数的实例化对象，找不到某个属性或者方法，一定会
+                去构造函数的原型下找，如果还没有找到会去原型下的
+                原型链查找，知道知道Object.prototype为止。
+
+    原型和原型链的关系？
+        实例化对象的原型链 === 构造函数的原型
+
+
+一个函数在创建出来的时候，就自带一些属性和方法
+其中就有call bind apply 改变指针方向（this）
+
+    call:无数个参数化
+        第一个参数：
+            改变this指向
+        第二个参数：
+            就是实参
+    apply:只有两个参数
+        第一个参数：
+            改变this指向
+        第二个参数：
+            是个数组（数组中放实参）
+    
+    相同点：都可以改变this指向，2个方法调用时候都是自动执行函数
+    不同点：call参数可以是无数个，而apply只有两个参数，第二个参数是数组
+
+    bind:
+        有无数个参数
+        第一个参数：
+            改变this指向
+        第二个参数：
+            就是实参
+        返回值是一个函数，并且调用bind方法之后，是不会执行函数体的，得手动执行。
+
+注意：如果第一个参数为null 或者undefined;this指向的是window
+
+    所有的数据类型都有toString方法
+    只有Object的toString可以查看数据的构造函数
+    此时，通过call来改变，Object.prptotype.toString的this指向，
+    使传入的数据能够被Object.prototype.toString方法处理
+
+如果没有var
+    在赋值之前访问变量那么会报错，
+    但是在赋值前访问window，它身
+    上是有这个属性的，并且这个属
+    性还是运算之后的。
+
+
+
+*/
+
+
+</script>
+</body>
+</html>
