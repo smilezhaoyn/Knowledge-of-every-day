@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/*
+
+什么时候会出现this?
+1,单纯的函数名 = 括号  this是window
+2,方法，this就是方法名.前边的对象
+3，定时器中调用函数内： this是window
+4,事件触发：this就是谁
+5，构造函数中this，是实例化对象
+6，use strict 严格模式下  this指向的是undefined 
+    函数中用arguments是可以给实参相映射的
+    函数中加use strict arguments是不能再给实参相映射的
+    禁止删除变量  delete  否则报错
+7,call apply bind 改变this指向
+8.箭头函数中的this指向父级
+
+
+
+this 
+    window
+        函数直接执行(非箭头函数)
+        匿名函数自执行
+        定时器
+        箭头函数暴露在全局
+        
+
+    事件触发的元素
+        事件函数(不能是箭头函数)被触发的时候，事件函数内的this，指向事件元素
+    实例
+        new了之后就指向实例（必须要return this），return上方this指向构造函数的实例
+
+    undefined
+        严格模式
+        'use strict'
+        声明变量必须使用var或let
+        arguments是不和形参相映射的
+        this指向undefined
+
+    对象的this
+        就是方法名.前面的
+        
+
+
+
+    箭头函数
+        ES6新添加的函数表达式
+
+        let fn = function (){}
+
+        let fn = (a,b) => {
+            //执行语句
+        }
+
+        let fn = function (a){
+            return a+1;
+        }
+        
+        箭头函数，不加{}就等同于return（只能有一行代码），加{}可以放多行代码。
+            let fn = (a) => a+1; 
+                或者是
+            let fn = a => a+1; 
+
+        注意:
+            如果没有参数，必须写括号
+
+        this指向老爹（当前箭头函数的上级）
+
+
+    call:有多个参数
+        第一个参数：改变this
+        第二个参数：实参
+    apply:有两个参数化
+        第一个参数：改变this
+        第二个参数：数组
+    bind:有多个参数
+        第一个参数是改变this指向
+        第二个是实参
+        返回值是一个新的函数，不会直接执行函数，需要手动执行
+    call和apply的区别：
+        相同点：都是自执行函数，第一个参数都是改变this指向
+        不同点：call是多个参数，apply就两个参数化，并且第二个参数是数组
+    call、apply、bind区别
+        call和apply是自执行函数，bind需要手动执行，并且返回值是一个新的函数
+
+    fn.call.call(函数，实参1，实参2....)
+        自动执行第一个函数，
+        后边的实参给第一个函数用
+
+    function fn(){};
+    fn.call.call(function(a,b){
+    console.log(a+b)
+    },window,2,6)
+
+原型和原型链的关系？
+    实例化对象的原型链 === 构造函数的原型
+    构造函数的原型只能给实例化对象用
+    构造函数的原型.__proto__  -> Object.prototype
+    对象上只有原型链 __proto__
+    函数身上既有原型和原型链
+        __proto__
+        prototype
+    
+面向对象继承的方式有哪些/
+    类式（call）继承 
+        调用父类改变this指向
+    拷贝继承
+        for in 要注意的点，继承的是否为自身的属性
+    原型继承
+    寄生组合式继承
+        Object.create(Person.prototype)
+
+箭头函数：ES6中增加的函数表达式
+    let fn = a => {} fn()
+    let fn = () => {} fn()
+    如果只有一个参数，可以不写 () ,如果一个参数都没用或者有多个参数必须写();
+    
+    如果说return的内容比较简单 比如运算只有一行，那么可以不加{} 直接 =>返回值，
+    就等同于return 运算结果
+    let fn = (a) => a;  //return a
+
+注意：箭头函数不能new 不然会报错。
+    如果没有参数，必须加括号。
+    this指向的是父级。
+
+
+类数组转数组：
+    类似于数组，有length，能添加属性和方法，可以通过下标找到值，但是使用不了数组的方法。
+
+    Array.from() es6中提供的新方法，类数组转为数组
+    Array.prototype.slice.call(aEle)
+    var aEle = document.getElementsByTagName('*');  *在这里是通配符
+
+
+盒子模型：
+    style.width / style.height 行间的样式
+    getComputedStyle(obj).height  计算后的样式
+    obj.currentStyle.height 计算后的样式，IE低版本
+
+
+    获取容器可视的宽高（不带单位，是数字）
+        clientWidth / clientHight   
+             支持padding,不支持border
+    
+        offsetWidht /offsetHeight
+            在client的基础上，支持border
+            在没有设置固定高度的时候，值为被内容撑开的高度
+        
+        
+        被内容撑开的尺寸（不管加不加固定的高都会获取出来）
+        scrollHeight /scrollWidht   不带边框
+
+        没有溢出：跟设置的宽高走
+        溢出：
+            content + paddingTop
+            content + paddingLeft(
+
+    正常用他们必须做到以下几点：
+        1，清楚默认的样式
+        2，设置默认的字体大小
+        3，触发haslayout(width/height/定位/zoom)
+        
+        
+
+
+*/
+
+// let arr = [1,2,3,4];
+// arr.splice(2,0,5);
+// console.log(arr)
+// var arr =[1,2,3,6,5]
+// arr.splice(2,0,9);
+// console.log(arr);
+
+// var a = 20;   //var 和window相映射  所以this.a = 20
+// let a = 20;  //let 和window不映射  所以this.a = undefined
+// function fn(){
+//     console.log(this.a);
+// }
+// fn();
+
+// document.onclick = function(){
+//     function ff(){
+//         new fn();
+//         console.log(this);
+//     }
+//     ff();
+// }
+// function fn(){
+//     console.log(this);
+// }
+
+// let n = 10;
+// if(true){
+//     console.log(n);
+//     let n = 20;
+// }
+
+
+// document.onclick = function(){
+//     let n = 30;
+//     let obj = {
+//         n:10,
+//         fn:function(){
+//             console.log(this.n)
+//         }
+//     }
+//     // setTimeout(obj.fn,1000)
+//     console.log(obj.fn())
+// }
+</script>
+</body>
+</html>
