@@ -1,0 +1,76 @@
+## **原型**
+- 
+
+prototype
+
+1.  函数下才会有prototype
+
+2.  函数是一个特殊的对象
+
+3.  new Function -> function
+
+
+
+
+1. 函数有原型和原型链
+
+2. 函数自己的方法走 __proto__
+
+3. new 函数（实例化对象）事对象  走原型链        去构造函数的原型下去找prototype
+
+__proto__
+
+对象下边会有，实例化对象下边会有
+
+构造函数原型    == 实例化对象的原型链
+
+this是实例化对象，实例化对象上有，就不会去找构造函数上的原型
+
+function 是由Function构造出来的  
+
+function__proto__   -> Function.prototype(如果没有，它就是个对象，找下一个)  ->Function.prototype.__proto__  ===  Object.prototype
+
+没new    Function.num -> Function__proto__  ->Function.prototype（如果没有，它就是个对象，找下一个） ->Function.prototype__proto__   ===  Object.prototype（如果也没有那就是undefined）
+有new    Function.num ->Function.prototype
+
+
+Number、Object、String、Function、Boolean、Array、Undefined、
+Null、Math、Date、RegExp....  它们自身都有内置类（除了Undefined  和  Null系统不允许查看以外，别的内置类都能看得到）
+
+内置类都是函数构造出来的
+内置类的原型是不能赋值的，就算是赋值也用不了，最后的结果是内置方法的结果
+
+原型：函数下边的属性
+原型链：  是实例化对象与构造函数原型的桥梁   （是实例化对象的属性）
+
+
+instanceof   左值（是对象类型）是不是右值构造出来的
+对象都是Object构造出来的（都是Object的基类）
+所有的函数包括内置类的基类都是Function
+
+
+
+hasOwnProperty  捡的自身是否有这个属性
+
+obj.hasOwnProperty(属性名)
+
+是自身的属性则为true
+不是自身的属性则为false
+
+枚举是会遍历原型链，直到Object.prototype
+
+constructor   指向构造函数，它是多想__proto__下自带的属性，这个属性默认指向构造函数，
+有点鸡肋，不一定准确，只能做一个参考作用
+constructor很容易被修改
+
+
+
+
+
+
+
+
+
+
+
+

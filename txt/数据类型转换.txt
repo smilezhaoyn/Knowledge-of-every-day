@@ -1,0 +1,79 @@
+    console.log(Number('10'));
+    console.log(Number(true)); //1
+    console.log(Number(false));//0
+    console.log(Number({})); //NaN
+    console.log(Number([])); //空白数组 0，非空白数组NaN
+    console.log(Number(undefined)); //NaN
+    console.log(Number(null)); //0
+    console.log(Number(/\d/)); //NaN
+    console.log(Number(aaa)); //NaN
+
+
+Number转换     true是1，false是0，空白数组是0，null是0.   空字符串也是0；其余的是NaN
+
+
+
+   console.log(parseInt('10.89')); //10
+   console.log(parseInt('10px'));//10
+   console.log(parseInt('000000000010px'));//10
+   console.log(parseInt('10.10px'));//10
+   console.log(parseInt('0.1'));//0
+   console.log(parseInt(true)); //NaN
+   console.log(parseInt(''));//NaN
+   console.log(parseInt({}));//NaN
+   console.log(parseInt(null));//NaN
+   console.log(parseInt([]));//NaN
+   console.log(parseInt('1010',2));//把2进制转10进制
+
+
+parseInt 非空字符串是可以转换出来的，其余的都是NaN
+
+
+parseFloat(字符串);
+
+	把字符串转成小数或者整数
+	浮点数的运算，在计算机中是不够精确的。
+	0.1 + 0.2 不是0.3
+
+toFixed()
+
+	number.toFixed(num)
+	保留几位小数 
+ 	   注意:保留的时候会看保留位数+1的值，会走四舍五入
+
+Boolean值的转换
+	    //非0数字为true,非空字符串为true；
+
+
+
+ null
+布尔值中为 false
+现在没有将来有可能有
+timer = null
+
+ECMAscript 规定
+undefined == null;
+let a;
+let a = null;  定义未来可变的变量可以那么写
+            
+
+1.元素没有获取到
+	1）页面中压根没有这个元素
+	2）元素的名字写错了
+	3）script标签放到了获取元素的上方且没有使用window.onload、DOM加载完成的事件
+
+2.正则中没有匹配项
+            console.log('str'.match(/\d/))
+        
+3.对象彻底被销毁的时候
+
+
+
+
+什么是真的什么是假的？
+string,number,null,undefined,boolean,object,symbol
+
+     真:
+ 	非空字符串、非0数字、true、非null对象、symbol
+     假:
+	空字符串、0、NaN、null、undefined、false

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    /*
+    
+    offset系列：这些属性只能读不能写
+        offsetTop / offsetLeft /offsetWidth /offsetHeight /offsetParent
+
+    client系列：
+        clientWidth / clientHeight /clientLeft(左边框) /clientTop(上边框)
+
+    offsetTop /offsetLeft
+
+    offsetParent:定位父级
+        在没有任何定位得情况下，它走得是body（在chrome中实测是走html）
+
+        使用：
+            祖先级节点又相对定位，自己有绝对定位，并且要有初始值。
+
+    offsetLeft  当前元素的左边框到定位父级左内边框的距离
+
+        使用：
+            祖先级节点有相对定位，自己有绝对定位，并且要有初始值。
+
+        注意：
+            如果没有定位父级或者祖先级，那么 就应该跟html走
+        
+    
+    滚动事件：
+        window.onscroll   滚轮的时候触发的事件
+
+    getBoundingClientRect() -> 返回的是一个对象
+
+    对象下有绝对的位置和宽高
+        left,top,right,bottom
+        width,height (只有高版本才有)
+        x轴和y轴(只有高版本才有)
+    
+    容器尺寸：
+        clientWidht / clientHeight
+        offsetWidth / offsetHeight
+        scrollHeight / scrollWidth
+
+        边框：
+            clientLeft /clientTop
+    
+    浏览器的尺寸： 
+        document.documentElement.clientWidht /document.documentElement.clientHeight  //IE中
+        document.body.clientWidth / document.body.clientHeight   //chrome中
+    
+
+    window.innerWidth /window.innerHight 高版本用
+        注意：如果有了滚动条，也会把滚动条计算在内
+
+    document.documentElement.clientWidth
+        如果有滚动条，是不会计算滚动条的距离的。
+
+    document.documentElement == HTML
+    window.innerWidth || document.documentElement.clientWidth
+
+    滚动的距离：
+        document.docuentElement.scrollTop  即可读又可写
+        window.pageYoffset /window.pageXoffset 只可读不可写
+    
+    window.socrollTo(x,y) 写滚动距离
+
+    window.pageYoffset || document.documentElement.scrollTop
+    
+
+    
+
+
+
+
+
+
+
+
+    */
+
+</script>
+</body>
+</html>
