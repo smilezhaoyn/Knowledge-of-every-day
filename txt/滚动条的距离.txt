@@ -1,0 +1,25 @@
+window.onscroll =() => {}
+滚动的距离：window.pageXOffset /window.pageYOffset (只能 读不能写)
+
+document.documentElement.scrollTop;（即可读也可写）
+window.scrollTo(x,y) 写滚动距离
+document.documentElement.scrollTop = 0；直接点击滚动条回到了顶部。
+document.body.scrollTop  IE
+
+
+window.pageYoffset || document.documentElement.scrollTop   可以这样写，兼容两个版本
+
+
+
+浏览器的尺寸:（可视区的宽高）
+	document.documentElement.clientWidth / document.documentElement.clientHeight IE
+            document.body.clientWidth / document.body.clientHeight  chrome中
+
+	window.innerWidth/window.innerHeight 高版本用
+                注意:如果有了滚动条，也会把滚动条计算在内
+
+            document.documentElement.clientWidth
+                如果有滚动条，是不会计算滚动条的距离的
+
+	document.documentElement == HTML
+            window.innerWidth || document.documentElement.clientWidth
