@@ -1,0 +1,20 @@
+结构赋值：
+	let arr = [11,12,13];
+	let a = arr[0];let b = arr[1];let c = arr[2]; (最lou的写法，a,b,c分别是11、12、13)
+
+	let arr = [11,12,13];
+	let [a,b,c] = arr; (a,b,c分别是11、12、13)
+	结构赋值：是让左边出现和右边相同的数据结构，左边可以创建一些变量，快速获取到一一对应的值。
+
+需求：获取第一项，把剩下的项当做一个数组返回：
+	let arr = [11,12,13]
+	let [a,...b] = arr; a=> 11;  b => [12,13]
+
+
+滚动条的事件：
+	表单里边：onchange  oninput
+	
+滚轮事件：window.onscroll,当页面中有滚动条的时候，当用户滚动鼠标中键，移动滚动条，触发的事件
+	window.onscroll = function(){console.log(1)}
+缩放事件：当用户缩放页面的时候，会触发onresize事件
+	window.onresize = function(){console.log(1)}

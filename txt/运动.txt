@@ -1,0 +1,83 @@
+t :time :已过的时间
+b :begin:起始值
+c :count：运动总值
+d :duration:持续时间
+
+开定时器的时间 let old = new Date();
+定时器开启之后，新的时间  let newDate = new Date();
+let time = newDate - old; //已过的时间	
+box.style.left = time/duration*count +'px';
+
+//t/d*c + b
+一般box会有自身的左left;需要从左距离开始，否则运动时候   会发生   返回0起始位置，才开始。总的距离，也要减一下刚开始的位置，（不减的话会在左边100px基础上走500px；最终结果是600px，不是刚开始要的走500px）
+
+let box = document.getElementById('box');
+let btn = document.getElementById('btn');
+
+let timer = null;
+let duration = 10000;
+let begin =parseFloat(getComputedStyle(box).left);
+let count = 500-begin;
+let old = new Date();
+timer = setInterval(() =>{
+let newDate = new Date();
+let time = newDate - old;
+
+console.log(begin)
+console.log(count)
+// console.log((time/duration * count)+ 'px')
+
+if(time>=duration){
+    time=duration;
+// clearInterval(timer)
+}
+if(time === duration){
+    clearInterval(timer)
+}
+box.style.left = begin+ (time/duration * count)+ 'px';
+
+
+
+//调用tween这个js库
+let timer = null;
+let d = 10000;
+let b =parseFloat(getComputedStyle(box).left);
+let c = 500;
+let c = c-b;
+let old = new Date();
+timer = setInterval(() =>{
+let newDate = new Date();
+let t = newDate - old;
+if(t>=d){
+    t=d;
+let v = Tween.elasticIn(t,b,c,d)
+box.style.left = v + 'px';
+
+}
+if(t === d){
+    clearInterval(timer)
+}
+
+
+
+let timer = null;
+let duration = 10000;
+let begin =parseFloat(getComputedStyle(box).left);
+let count = 500-begin;
+let time = 0；  //不用每次获取新的时间，可以每次+=16.7来获得新的时间
+timer = setInterval(() =>{
+time += 16.7;
+if(time>=duration){
+    time=duration;
+}
+if(time === duration){
+    clearInterval(timer)
+}
+box.style.left = begin+ (time/duration * count)+ 'px';
+
+},16.7)
+
+
+
+
+
