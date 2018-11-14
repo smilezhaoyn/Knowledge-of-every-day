@@ -1,0 +1,68 @@
+类数组转数组的方法？
+	Array.from()
+	Array.prototype.slice.call()   =>  [].slice.call()
+	Array.preototype.concat.apply([],lis)  => [].concat.apply([],lis)
+	[...类数组]
+
+什么是正则？
+	专门用来检索模糊范围的字符串的一种 规则
+	简写：/规则|不加引号的字符串/
+	标准写法：new RegExp(// | '','修饰符')
+	
+	元字符有哪些？
+	\s空白字符
+	\S 
+	\d 数字
+	\D 
+	\w 字母，数字下划线
+	\W 
+	\b边界符
+	\B 
+	\n换行
+	\r 回车
+正则的方法
+	//.test()  返回是一个布尔值，匹配成功是true,没匹配成功是false
+	//.exec()  返回是一个数组，或者是一个null
+	
+	string.match()
+	string.replace()
+	str.search(/i/g)  //就算是写了全局，也只能找一个i，并且是i所在的索引位置。
+	str.split(/i/g)  //找到i截取掉，
+
+	string.replace('' || 正则，'' || callback);  把第一个参数替换第二个参数
+	callback($0,$1,$2,$3)
+		$0是匹配到的每一个字符串
+		$1是匹配到每个字符串的索引位置
+		$2整个字符串
+		$4undefined
+	括号分组
+		$0是匹配到的每一个字符串
+		$1是第一个分组
+		$2是第二个分组  .....以此类推，匹配完之后，再是索引位置，整个字符串，undefined
+
+replace用在了哪些地方？
+	格式化日期
+	过滤敏感词
+	查找最多项
+	模拟模板
+
+什么是JSON,JSON转对象？
+	JSON.parse(json)  ->对象（注意：json必须是标准格式，undefined,和函数是转不了的）
+	JSON.parse(json) ->   json2.js ->   eval()  => eval( '(' + json + ')')   -> new Function('','return' + json)
+	JSON.stringify(obj) -> JSON
+
+盒子的尺寸有哪些？
+	clientWidth /clientHeight   //  padding+width
+	clientLeft /clientTop   //  边框
+	offsetWidth / offsetHeight  //padding +width +border
+	scrollWidht / scrollHeight    // 内容撑开的
+
+盒子的距离？
+	offsetLeft / offsetTop  左（上）外边框的距离到定位父级的左（上）内边框的距离
+	getBoundingClientRect().left/top/right/bottom
+
+
+
+
+	
+

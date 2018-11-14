@@ -23,3 +23,11 @@ window.pageYoffset || document.documentElement.scrollTop   ¿ÉÒÔÕâÑùĞ´£¬¼æÈİÁ½¸ö°
 
 	document.documentElement == HTML
             window.innerWidth || document.documentElement.clientWidth
+
+
+ele.setAttribute('index',1) ±êÇ©µÄÊôĞÔ
+
+imgÎŞĞ§µÄÊ±ºò£¬ÏÔÊ¾Ä¬ÈÏµÄÍ¼Æ¬
+	imgÓĞÁËsrcµØÖ·Ö®ºó£¬ÓĞÁ½¸öÊÂ¼ş¡£
+	img.onload
+	img.onerror
