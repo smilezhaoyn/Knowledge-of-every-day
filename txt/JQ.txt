@@ -1,0 +1,117 @@
+jquery:
+	JS的类库（方法库），一堆常用的方法的一些封装，能够更好的兼容各种浏览器，并且操作DOM的时候特别方便。
+
+1，先引入Jquery库
+2，$('img').css({
+	width:100,
+	})
+     $('img').animate({
+	width:200,
+	left:200
+	})
+     $(document).click(function(){
+	$('img').hide(),  //隐藏
+	$('img').toggle() //切换
+	});
+
+
+$(function(){
+	$('img').css({
+	width:100,
+	})
+     $('img').animate({
+	width:200,
+	left:200
+	})
+     $(document).click(function(){
+	$('img').hide(),  //隐藏
+	$('img').toggle() //切换
+	});
+	})
+
+
+
+JQ选择器：
+	input中的设置内容
+input里边的内容val: -> value
+	$('input:first').val('设置你了');
+	$('input[type="text"]').val('设置你了');
+其他文本的内容：
+	html() => innerHTML 
+	text() => innerText()
+	$('input[value="按钮"]').click(function(){
+	$('ul').html($('ul').html() + '<li>新的</li>')
+	});
+	$('ul').append('<li>新的</li>')
+属性选择器：
+	$('ele[class = 'li1']')
+	
+	只要开头为li1 的全部筛选出来
+	$('ele[class ^= 'li1']')
+	只要结尾为li1 的全部筛选出来
+	$('ele[class $= 'li1']')
+伪类选择器	
+隔行变色 
+	 even偶数  $('li:even').css('background','red') 
+	 odd奇数	  $('li:odd').css('background','red') 
+	 li:lt(3)  //小于索引3
+	 li:gt(3) // 大于索引3
+jquery对象转原生对象    加下标即可
+	$('li') =>$('li')[0];
+	$('li') =>$('li').get(0);
+原生转jquery  加 $(包原生对象);
+
+
+even偶数  $('li:even').css('background','red') 
+odd奇数	  $('li:odd').css('background','red') 
+li:lt(3)  //小于索引3
+li:gt(3) // 大于索引3
+$().after(content);                                        在匹配元素后面添加内容
+$().append(content);                                   将content作为元素的内容插入到该元素的后面
+$().appendTo(content);                               在content后接元素
+$().before(content);                                  与after方法相反
+在jquery中  传一个参数（字符串）是获取，传一个对象是批量设置
+	   传两个参数是设置
+
+attr  设置行间属性 表单不能操作
+$('#btn').attr('index') 	获取行间属性
+$('#btn').attr('index','2')  	设置行间属性
+$('#btn').removeattr('index')    删除行间属性
+
+prop专门操作表单的
+$('input').prop('checked',false)
+
+:input  带有冒号的是代表input所有的元素
+
+index()以父级为基础，找到子级的索引
+	在使用index的时候，把精确的匹配条件加上
+	index('button') 以一堆button为依据，当前点击的是谁
+each()循环
+$(ele).each( (i,e) =>{
+	})
+$(ele).each(function(i,e){
+	//这里的this是一一对应的点击的button
+	})
+
+$('button').clcik(function(){
+	//这里自带索引值  index
+	$(this).index();
+	})
+
+removeClass('active')  //删除所有class
+eq() //这里的索引值  不让JQ变为JS   eq(放索引值) 
+
+给当前加上active,其他的元素siblings移除class
+$(this).addClass('active').siblings().removeClass('active');
+
+siblings()  以当前节点为基准的所有的兄弟节点（因为兄弟节点包含的元素很多，使用时把精确匹配的条件加上）
+
+jquery架构
+	一般用两个版本：一个版本是开发版（学习版不压缩），一个版本是生产版（压缩版）
+	
+
+
+
+
+
+
