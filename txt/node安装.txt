@@ -1,0 +1,13 @@
+1、先 node -v 查看版本
+2、nvm 版本切换
+3、npm install nrm -g 如果报错，需要（npm cache clean --force）清一下
+4、nrm test
+5、nrm use [名字]  //选择网速最快的一个
+6、npm i 安装依赖   装完之后   就会出现  node_modules
+7、node .\app.js
+
+npm install可以将node-modules下载下来    快捷键  npm i
+
+localhost //默认 192.168.0.1
+注意：只要在服务器上，尽量不要取中文
+
