@@ -28,4 +28,39 @@ ajax缺点:
 
 	
 '[]' '{}' 本质都是字符串 -》 json.parse() => eval() => new Function();
+
+
+
+AJAX : 原生请求数据过程
+
+    ? 到# 之间的信息    window.location.search  要查询信息
+
+    ?key=value&key=value&key=value...    ?后边的是请求的条件，条件满足就给你（筛选出来）返回出来
+
+    在IE下有一个插件，专门解决Ajax请求数据
+    ActiveXObject
+    IE6以下   new ActiveXObject('Mscrosoft.XMLHttp')
+    IE6以上   new XMLHttpRequest;
+
+    1、创建Ajax对象
+	 let xhr = new XMLHttpRequest;
+    2、请求数据    
+	xhr.open('get','/get?user=' + txt.value,true)  //'get'请求方式  '/get'请求地址   默认true要异步
+    3、发送  
+	xhr.send();
+    4、等待     
+	xhr.onload = function(){}
+    5、接收信息               
+	let data = JSON.parse(xhr.responseText);  //数据中返回的信息
+
+
+
+未来的一种方式：
+	btn.onclick = function(){
+    		fetch('/get?user='+ txt.value)
+    		.then((e) => e.json())
+    		.then(data=>{
+        		console.log(data)
+   		 })
+  	}	
 	
