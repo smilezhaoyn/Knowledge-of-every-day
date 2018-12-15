@@ -8,15 +8,16 @@
 <script>
 
 /*
+for of------------------------------------------------
+    for of 数据结构的统一遍历接口
+    可以用到数组 也可以用到对象
 
-for of 数据结构的统一遍历接口
-可以用到数组 也可以用到对象
-
-只要symbol.Iterator 就可以使用for of
+    只要symbol.Iterator 就可以使用for of
 
     let arr = [1,2,3,5,6]
     arr.entries()// 下标和内容  arr.keys()  //出现下标的0-5    arr.values() //数组里边的1-6
-    
+
+new Set()------------------------------------------------    
     //数组去重  一句话的事情
     let arr = [1,1,1,5,9,8]
     [...new Set(arr)]
@@ -26,11 +27,11 @@ for of 数据结构的统一遍历接口
     a是一个实例化对象   [...a] 输出是一个数组的格式
     不支持下标，所以不能用for循环  只能用for of循环
     
-
+forEsch() 中的return --------------------------------------
     数组中的 forEach()返回值是一个undefiend；
     forEach()有跳过return  没有跳过
 
-    promise
+promise  -------------------------------------------------
     请求过来的数据，有可能是null，有可能是有数据的 ，有数据就用 .then里边进行循环
         let arr = [];
         let p = new Promise(function(resolve){
@@ -58,9 +59,10 @@ for of 数据结构的统一遍历接口
     任务队列里边  包括：宏任务（定时器，整体代码script）、微任务（promise\process.nexTick）
     先执行主任务 -> 然后在执行任务队列中  ：先执行微任务（promise）中的.then -> 宏任务（定时器）
 
+Generator  -------------------------------------------------
     Generator  //异步
     最大的特点就是交出函数的执行权（即暂停执行）
-
+Fetch  -----------------------------------------------------
     Fetch:
         fetch是基于promise设计的  低版本是用不了的
 
@@ -89,7 +91,8 @@ for of 数据结构的统一遍历接口
             blob()： 返回一个Blob，Blob对象是一个不可更改的类文件的二进制数据
             arrayBuffer()
             formData()
-
+            
+----------------------------------------------------------------------------------------------------------
     将对象格式直接转化为URL格式的
         new URLSearchParams({
             name:'xxx',
@@ -97,6 +100,23 @@ for of 数据结构的统一遍历接口
         }).toString()
 
         //结果是name=xxx&age=25
+
+
+        fetch('post',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:new URLSearchParams(
+                    {
+                        name:'xxx',
+                        age:25
+                    }
+                ).toString()
+        }).then((e) => e.json()  //是一个promise对象 这里还可以写  e.text()
+            ).then((e) =>{
+            console.log(e)
+        });
 
     
 */
@@ -120,21 +140,7 @@ for of 数据结构的统一遍历接口
 
 // console.log(b)
 
-fetch('post',{
-    method:'POST',
-    headers:{
-        'Content-Type':'application/json'
-    },
-    body:new URLSearchParams(
-            {
-                name:'xxx',
-                age:25
-            }
-        ).toString()
-}).then((e) => e.json()  //是一个promise对象 这里还可以写  e.text()
-    ).then((e) =>{
-    console.log(e)
-});
+
 
 
 </script>
