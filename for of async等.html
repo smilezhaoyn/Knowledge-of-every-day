@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+/*
+
+for of 数据结构的统一遍历接口
+可以用到数组 也可以用到对象
+
+只要symbol.Iterator 就可以使用for of
+
+    let arr = [1,2,3,5,6]
+    arr.entries()// 下标和内容  arr.keys()  //出现下标的0-5    arr.values() //数组里边的1-6
+    
+    //数组去重  一句话的事情
+    let arr = [1,1,1,5,9,8]
+    [...new Set(arr)]
+
+    let a = new Set([1,2,5,9,3,5,98]);
+    用new Set()包一下  然后可以用到  a.size得到它的lenght长度
+    a是一个实例化对象   [...a] 输出是一个数组的格式
+    不支持下标，所以不能用for循环  只能用for of循环
+    
+
+    数组中的 forEach()返回值是一个undefiend；
+    forEach()有跳过return  没有跳过
+
+    promise
+    请求过来的数据，有可能是null，有可能是有数据的 ，有数据就用 .then里边进行循环
+        let arr = [];
+        let p = new Promise(function(resolve){
+            setTimeout(function(){
+                resolve([1,2,3,6,5])
+            },3000);
+        });
+        p.then(e=>{
+            if(!e){
+                console.log('没有数据');
+            }else{
+                e.forEach(ele => {
+                    console.log(ele);
+                });
+            }
+        }).finally(() =>{
+            //上边执行完了之后才会执行它
+            console.log('最后执行')
+        })
+
+    promise是新建后立即执行，而then方法指定的回调函数，
+    将在当前脚本所有同步任务执行完才会执行,所以resolved后面执行;
+
+    在任务里边分:主任务\任务队列  
+    任务队列里边  包括：宏任务（定时器，整体代码script）、微任务（promise\process.nexTick）
+    先执行主任务 -> 然后在执行任务队列中  ：先执行微任务（promise）中的.then -> 宏任务（定时器）
+
+    Generator  //异步
+    最大的特点就是交出函数的执行权（即暂停执行）
+
+    Fetch:
+        fetch是基于promise设计的  低版本是用不了的
+
+        fetch(url,options)
+        .then(function(success){})
+        .then(function(error){})
+
+        options默认配置 //https://www.jianshu.com/p/35123b048e5e
+            method(String): HTTP请求方法，默认为GET
+
+            body(String): HTTP的请求参数
+            headers(Object): HTTP的请求头，默认为{}
+            credentials(String): 默认为omit,忽略的意思，
+            也就是不带cookie;还有两个参数，same-origin，
+            意思就是同源请求带cookie；include,表示无论跨域还是同源请求都会带cookie
+
+            status(number): HTTP返回的状态码，范围在100-599之间
+            statusText(String): 服务器返回的状态文字描述，例如Unauthorized,上图中返回的是Ok
+
+            ok(Boolean): 如果状态码是以2开头的，则为true
+            headers:  HTTP请求返回头
+            body:  返回体，这里有处理返回体的一些方法
+
+            text(): 将返回体处理成字符串类型
+            json()： 返回结果和 JSON.parse(responseText)一样
+            blob()： 返回一个Blob，Blob对象是一个不可更改的类文件的二进制数据
+            arrayBuffer()
+            formData()
+
+    将对象格式直接转化为URL格式的
+        new URLSearchParams({
+            name:'xxx',
+            age:25
+        }).toString()
+
+        //结果是name=xxx&age=25
+
+    
+*/
+//   function* fn(x){
+//       console.log(x);
+//       var a = yield x + 2;
+//       var b = yield x + a;
+//       return a;
+//   }
+//   let f = fn(5);
+// //   console.log(f.next());
+//   console.log(f.next(f.next().value)); //{value: 12, done: false}
+// //   f.next();
+
+// let b = new URLSearchParams(
+//             {
+//                 name:'xxx',
+//                 age:25
+//             }
+//         ).toString()
+
+// console.log(b)
+
+fetch('post',{
+    method:'POST',
+    headers:{
+        'Content-Type':'application/json'
+    },
+    body:new URLSearchParams(
+            {
+                name:'xxx',
+                age:25
+            }
+        ).toString()
+}).then((e) => e.json()  //是一个promise对象 这里还可以写  e.text()
+    ).then((e) =>{
+    console.log(e)
+});
+
+
+</script>
+</body>
+</html>
