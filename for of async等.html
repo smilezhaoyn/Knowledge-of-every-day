@@ -91,7 +91,7 @@ Fetch  -----------------------------------------------------
             blob()： 返回一个Blob，Blob对象是一个不可更改的类文件的二进制数据
             arrayBuffer()
             formData()
-            
+
 ----------------------------------------------------------------------------------------------------------
     将对象格式直接转化为URL格式的
         new URLSearchParams({
@@ -140,7 +140,30 @@ Fetch  -----------------------------------------------------
 
 // console.log(b)
 
+axios.get('/get?name=huihui')
+.then((e)=>{
+    console.log(e.data)
+})
 
+
+axios.get('/get',{
+    params:{
+        name:'huihui'
+    }
+}).then(e=>{
+    console.log(e.data)
+});
+
+axios.post('post',{
+    name:'aaa'
+}).then(e=>{
+    console.log(e.data)
+}).catch(function(error){
+    console.log(error)
+})
+
+
+    
 
 
 </script>

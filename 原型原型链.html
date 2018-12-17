@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    
+    function Fn(){
+        // this.num = 10;
+    }
+    // Fn.prototype.num = 20;
+    // Fn.num = 35;
+    // Function.prototype.num = 30;
+    Object.prototype.num = 25;
+    let f = new Fn();
+    // f.num = 50;
+
+    console.log(Fn.num)
+    
+</script>
+</body>
+</html>
