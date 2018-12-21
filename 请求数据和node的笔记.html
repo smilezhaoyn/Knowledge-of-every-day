@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+/*
+请求数据的5步  get会缓存  post不会缓存
+
+GET请求//面试会用到
+        let xhr = new XMLHttpRequst;
+        协议+域名+端口+?+查询信息 +hash...
+        xhr.open('get',url,true)   //请求方式，请求url地址，是否异步
+        xhr.onreadystatechange = function(){ //等待...
+            xhr.readyState => 监听到4步 0-4
+                0：请求未初始化
+                1：服务器已经建立连接
+                2：请求已接收
+                3：请求处理中
+                4：请求已经完成，并且响应已准备就绪
+
+            xhr.status //状态码
+                101 ->切换协议 （从http切换到websocket协议）
+                200 ->请求成功
+                301 ->资源（网页）被永久转移到其他URL 永久重定向 
+                302 ->临时重定向
+                304 ->已经访问过了 缓存
+                307 ->临时重定向   http => https
+                403 ->服务器已经接收到了请求，但是拒绝了请求（一般见于文件或目录权限设置的导致）
+                404 ->请求的资源（网页）不存在
+                500 ->服务器错误
+                503 ->服务器超载
+        } //全部兼容
+        xhr.onload = function(){
+            xhr.readyState    =>直接走4
+        } //高版本兼容
+        xhr.send() //发送
+
+POST请求//面试会用到
+
+        let xhr = XMLHttpRequest;
+        xhr.open('post','/post',true); //请求方式，请求地址，是否异步
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');//设置头信息
+        xhr.onreadystatechange = function(){}
+        xhr.send('user='+ txt.value);
+
+//工作中用到的 GET请求
+        fetch('/get?ren='+txt.value)
+        .then((e)=>e.json())
+        .then(data=>{
+            console.log(data);
+        });
+
+//工作中用到的 POST要设置请求头
+        fetch('post',{
+            method:'post',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:new URLSearchParams({ //将对象变为url地址上的查询信息
+                    name:uv
+                }).toString(),
+        })
+        .then(e=> e.json())
+        .then(e=>{
+            console.log(e)
+        })
+
+工作中用axios
+引用一下axios.js
+
+        //GET请求
+        axios.get('/get?user=xu&n=2')
+        .then(e=>{
+            console.log(e)
+        })
+        //失败了走catch
+        .catch(e=>{
+
+        })
+
+        //POST请求
+        axios.post('/post',{
+            user:'yanan'
+        })
+        .then(e=>{
+            console.log(e)
+        })
+
+get请求成功之后  再请求post  然后  两个条件都成立  才芝麻开门
+
+    axios.get('/get?user=cao')
+    .then(e=>{
+        if(e.data.data.code == 0){
+            return axios.post('/post',{
+                user:'zhao'
+            });
+        }else{
+            throw '没门'
+        }
+    })
+    .then(e=>{
+        if(e.data.code == 0){
+            console.log('芝麻开门')
+        }else{
+            console.log('不开门');
+        }
+    })
+    .catch(e=>{
+        console.log(e)
+    })
+
+
+
+端口：0-65535之间的一个整数，是16个二进制位
+
+JQ的ajax的请求方式
+        $.ajax({
+            url:'get',
+            data:{
+                user:$('#txt').val
+            },
+            dataType:'json',
+            success:function(){
+
+            }
+        });
+
+以太网分为两部分：1、表头：谁接收、谁发送、数据类型等 2、数据
+MAC:接收和发送的网卡的地址
+广播：在发送MAC地址的时候，会向本网络的所有计算机发送数据，这些计算机接收到信息之后，判断MAC地址是否匹配，匹配就接收（进一步处理，不匹配就丢弃）
+
+网络层
+这就导致了“网络层”的诞生
+        它的作用是引进一套新的地址，区分不同计算机是否属于一个子网络，这套网络地址叫做网址
+
+    IP：    IP协议：网络地址的协议，它所定义的地址，就是IP地址
+        最广泛的IP地址是  IPV4 我们用分成四段的十进制数表示IP地址 
+        分两个部分：1、前一部分是网络 2、后一部分代表主机
+
+    子网掩码 就是表水子网络特征
+    172.18.0.159
+       172.18.0 子网络部分
+       .159 主机
+        
+    ARP协议：
+        两台主机在同一个子网络下（能获取到IP地址,不能获取MAC地址），我们就用ARP协议，通过IP地址能找到对方MAC地址
+        ARP：在发送数据的时候，把要找的IP发送出去，以广播形式发送出去，没有匹配到的就丢弃这条数据，匹配上的就返回MAC地址
+
+传输层
+        传输层的功能，建立端口到端口之间的通信，只要确定主机和端口，就能实现程序之间的交流（unix系统把主机+端口叫做套接字）
+        
+
+UDP：
+        IP里面包了端口，以太网里边包了ip和端口
+        有IP、发出端口和接口端口 MAC+ 数据体
+
+TCP：
+        一个有确认接收的UDP，如果发送之后，对方没有收到，就再次发送，收到了就确认
+        TPC协议能够确保数据不会遗失，缺点：过程复杂，实现困难，消耗太多的资源。
+
+
+
+
+
+
+*/
+    
+
+// //axios.all
+
+// function get(){
+//     return axios.get('/get?user=zhao');
+// }
+// function post(){
+//     return axios.post('/post',{
+//         user:'yanan'
+//     });
+// }
+// //2个都请求成功之后 再进行判断
+// axios.all([get(),post()])
+// .then(axios.spread(function(a,b){ //a是第一个get b是第二个get
+//     // console.log(a.data,b.data)
+//     if(a.data.code == 0 && b.data.code == 0){
+//         console.log('变身了');
+//     }else{
+//         console.log('失败');
+//     }
+// }))
+
+</script>
+</body>
+</html>
