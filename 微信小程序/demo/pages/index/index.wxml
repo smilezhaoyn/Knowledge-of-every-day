@@ -1,0 +1,29 @@
+<!--pages/index/index.wxml-->
+<!-- <text>pages/index/index.wxml</text> -->
+<swiper autoplay='true' 
+circular='true'
+vertical='true'
+indicator-dots='true' indicator-color='rgba(255,255,255,0.7)' indicator-active-color='red'>
+<swiper-item wx:for = "{{imgUrl}}" wx:key="item"> 
+<image src="{{item}}"></image>
+</swiper-item>
+</swiper>
+
+<view>
+<view class='title'><text>全部课程</text></view>
+<view class='con'>
+  <view class='con-item' wx:for="{{items}}">
+  <image src='{{item.imgUrl}}' mode='widthFix'></image>
+  <view><text>{{item.title}}</text></view>
+  <view><text>{{item.price}}</text></view>
+  </view>
+
+</view>
+</view>
+
+<block wx:for="{{[1,2,3]}}">
+  <view>{{index}}</view>
+  <view>{{item}}</view>
+
+
+</block>
