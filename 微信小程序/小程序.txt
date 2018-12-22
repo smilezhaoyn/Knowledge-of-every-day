@@ -11,4 +11,50 @@
 3，安装开发者工具
 4，开发/测试
 为了获取APPID 
+
+
+组件的优点：
+	1、可组合性
+	2、可重用性
+	3、可维护性
+
+<image src='/images/a.jpg' mode='widthFix'></image>
+widthFix  自适应
+
+
+最外层swiper
+indicator-dots='true'   设置出现小圆点
+indicator-color='rgba(255,255,255,0.7)'  设置小圆点的颜色
+ indicator-active-color='red'  设置小圆点选中之后的颜色
+autoplay='true'  加轮播效果
+circular='true'
+
+vertical='true'  纵向轮播
+
+循环
+<swiper-item wx:for = "{{imgUrl}}"> 
+<image src="{{item}}"></image>
+</swiper-item>
+
+wx:for-index  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
