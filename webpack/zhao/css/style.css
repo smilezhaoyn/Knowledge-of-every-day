@@ -1,0 +1,13 @@
+#box{
+    width: 200px;
+    height: 200px;
+   background: url('../images/3.jpg');
+}
+#box1{
+    width: 200px;
+    height: 200px;
+    border: 5px solid salmon;
+}
+body{
+    background: turquoise
+}
