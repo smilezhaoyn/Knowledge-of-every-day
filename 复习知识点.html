@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+/*JQ*************************************/
+/*
+
+选择器： #box .box li
+属性选择器 $('li[class="li1"]')
+伪类选择器: 
+        :first
+        :even   //偶数
+        :odd    //奇数
+        :lt(num) 小于某个所引值
+        :gt(num) 大于某个所引值
+        :checked 匹配所有被选中的 元素（复选框、单选框不包括select中的option）
+
+val('写要设置的内容')   =>原生中的  value
+html()  =>原生中的  innerHTML
+text()  =>原生中的  innerText
+    // $('input[type="button"]').val('不点击');
+
+
+原声与JQ互转
+        jq转原生 ：  加下标即可  $('li')  =>  $('li')[0]
+        原生转JQ ：  $(包原生对象)  $(document).click
+
+JQ中基本都有一个特性
+        传一个参数（字符串）是获取  传两个参数是设置   传个对象是批量设置
+
+prop专门操作表单元素的
+        $('input').prop('checked',false);
+
+        siblings()
+            以当前节点为基准的所有兄弟节点
+
+            小技巧:
+                因为兄弟节点包含的元素很多，使用时把精确匹配条件加上
+                siblings('div'):
+                    找到所有兄弟节点为div的元素
+
+        addClass()  添加class
+        removeClass() 删除class
+
+
+        eq(index):
+            找到一组元素的某个，并且还是jquery对象
+index()  点谁是谁   所引值
+
+$('button').click(function(){
+    $(this).addClass('active').siblings('button').removeClass('active');
+    $('div').eq($(this).index('button')).addClass('show').siblings('div').removeClass('show');
+    // $('button').removeClass('active');
+    // $('button').eq($(this).index()).addClass('active');
+});
+
+/*
+    hover是onmouseleave和onmouseenter
+*/
+// $('#box').hover(function(){
+//     $(this).css('background','red');
+// },function(){
+//     $(this).css('background','#000');
+// });
+      
+        
+//trigger
+        
+    //  //创建event的对象实例。
+    //  var event = document.createEvent('HTMLEvents');
+       
+    //    // 3个参数：事件类型，是否冒泡，是否阻止浏览器的默认行为
+    //    event.initEvent("上滚", true, true);
+   
+    //    //给event对象绑定数据
+    //    event.name = '小胖';
+    //    event.num = 0;
+   
+       
+    //    document.onmousewheel = function(ev){
+    //        if(ev.wheelDelta > 0){
+    //            event.num = ++ event.num;
+    //            document.dispatchEvent(event);
+    //        }
+    //    }
+   
+        
+
+        
+    </script>
+</body>
+</html>
