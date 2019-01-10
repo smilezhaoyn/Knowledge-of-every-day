@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /*
+    
+    vue 是一套用于构建用户界面的渐进式框架
+
+    MVC：
+        Model View Control (数据、视图、控制器)
+    MVVM框架：
+        Model(数据) View(视图) View Modle(视图数据)
+        VM:通过视图去操作数据，也能通过数据操作视图（双向数据绑定）
+    angular(ng-xxx)  vue(v-xxx)
+    
+    渐进式：
+        一般的框架粘性很强（强主张）（比如：angulur,只要一开始用anguluar那么这个
+        项目就的一直用它，不能和别的框架耦合）
+
+        vue（弱主张）只要会点HTML CSS 加点vue的思想就能学会
+    
+    vue全家桶
+        vuejs + vue-router + vuex + vue-cli
+    
+    项目全家桶
+        框架全家桶 + node + 数据库
+
+    v-if="onOff"只要条件成立 就显示if中的内容
+    v-else   if条件不成立  就显示当前的元素
+    v-else-if 
+
+    三者  都的紧跟着   不然中间插一个其他的  会报错
+
+    v-show  如果条件成立  则显示   不成立  则dispaly:'none'
+
+    路由
+    如果页面在刷新的时候，通过路由的信息来操作数据可以在created下使用this.$route这个属性
+        this.$route存着一些与路由相关的信息
+            常用的：
+                params：预设的变量
+                path:当前路由的路径
+                query：URL的查询信息 是一个对象格式
+                hash： hash信息  #号
+
+        <router-link>  自动生成一个a标签
+            1.<router-link to="/">
+            2.<router-link :to="'a'">
+            3.<router-link :to="{path:'/'}">
+            4.<router-link :to="{
+                path:'/',
+                query:{
+                    a:5
+                }
+            }">
+
+    编程式路由
+            可以使用this.$router 身上的方法去任意切换路由
+                里边有几个方法
+                    push(): this.$router.push(跳转的路由地址)
+                    go():this.$router.go(-1)  //返回上一级
+                        this.$router.go(1)  //返回下一级
+                        this.$router.go(3)  //前进三步
+                        this.$router.go(-3)  //后退三步
+                    replace():this.$router.replace('/c')  
+                        //不会向 history 添加新记录 替换掉当前的 history 记录
+                        新的思路商品页 => push =>下单页 => replace => 支付页 => replace =>订单列表页，
+                        这样就不会陷入死循环了，也不会在支付订单后可以再退回到支付页和下单页了。
+
+    配置路由的模式
+        mode:
+            hash
+            history
+
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    */
+    
+</script>
+</body>
+</html>
