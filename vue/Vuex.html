@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+/*
+
+Vuex是一个状态管理器，能够管理你的数据状态
+    1.项目足够大,才能用到vuex
+    2.用于复杂的页面，一个数据多个页面或者多个路由共享（互相交互）
+        多层级交互的时候可以使用vuex
+
+    vuex使用的步骤：
+        1.vue create 文件名
+        2.npm i vuex
+        3.自己手动配置store
+            在src中建一个store => 建一个store.js
+
+        4.引包
+            import Vue from 'vue'
+            import Vuex from 'vuex'
+            Vue.use(Vuex);
+
+        main.js中
+
+            import Vue from 'vue'
+            import App from './App.vue'
+            import store from './store/store'
+
+            new Vue({
+            
+            render: h => h(App),
+            store
+            }).$mount('#app')
+
+        //辅助函数的引用
+        //在输出state的时候可以使用辅助函数来简化你的操作
+            import {mapState,mapGetter} from 'vuex'
+
+        getter  派生出一些状态,就像计算属性一样，
+        getter 的返回值会根据它的依赖被缓存起来，
+        且只有当它的依赖值发生了改变才会被重新计算
+
+        初始化状态的一个数据，只要改变state的时候，就会改变视图
+
+        const state = {
+            num:0,
+             ary:[
+                    {
+                        num:0,
+                        id:0
+                    },
+                    {
+                        num:1,
+                        id:1
+                    }
+                ],
+        }
+
+        //改变数据的方法
+
+        //  mutations 放同步
+        const mutations = {
+            add(state){ //这里的state就是初始化状态
+                //这里是写你要改变数据的的代码
+            }   
+        }
+
+        // actions 放异步
+        actions(只要是这个数据状态需要被很多组件使用，并且此数据还是从后台请求过来的数据（异步数据）就要使用actions)
+
+        actions:{
+            actionsName($store,可以跟参数){
+                异步环境之后使用
+                $store.commit('add',参数)
+            }
+        }
+
+        view层使用:
+            this.$store.dispatch('actionsName',传参)
+
+
+
+        const getters = {
+
+        toDou(state){
+                let arr = JSON.parse(JSON.stringify(state.ary));
+                return arr.map((e)=>{
+                    if(e.num<10){
+                        e.num = '0'+ e.num;
+                    }else{
+                        e.num = '' + e.num;
+                    }
+                    
+                    return e;
+                })
+                
+            }
+        }
+
+
+    export default new Vuex.Store({
+        state,
+        mutations,
+        getters
+    })
+
+    this.$store.commit(mutations中函数名，可以跟参数)
+
+    注意：在mutations下的操作都是同步的。
+
+    在main中，引入的时候，命名必须是store
+    new Vue({
+        store
+    })
+
+    1. state  初始化状态的数据   ...mapState(['count'])
+    2. getters   ...mapGetters(['xxx'])
+    computed:{
+        ...mapState(['count'])
+        ...mapGetters(['count'])
+        //可以用这样的方法  把数据传出去
+        count(){
+            return this.$store.state.num
+        }
+    }
+
+
+
+    onst moduleA = {
+    state: { ... },
+    mutations: { ... },
+    actions: { ... },
+    getters: { ... }
+    }
+
+    const moduleB = {
+    state: { ... },
+    mutations: { ... },
+    actions: { ... }
+    }
+
+    const store = new Vuex.Store({
+        modules: {
+            a: moduleA,
+            b: moduleB
+        }
+    })
+
+    store.state.a // -> moduleA 的状态
+    store.state.b // -> 
+*/ 
+
+
+</script>
+</body>
+</html>
