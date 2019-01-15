@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/*
+
+最简单的react
+    专门构建于用户界面的js库（顶多它是MVC中的V层框架）
+    核心思想，通过数据操作视图
+
+
+    create-react-app  脚手架
+
+    1.安装
+
+        2步的方法
+            npm install create-react-app -g
+            npx create-react-app app
+
+        1步成功的方法
+        npx create-react-app my-app(项目名称)
+        cd my-app
+        npm start
+
+        react语法：
+            jsx语法  : javascript + xml 一种js和自定义写法的一种混合语法
+                        jsx语法主要是为了更好的读写模板或者组件，jsx语法浏览器是不识别的，
+                        通过bable的方式把jsx转成了浏览器识别的语法
+
+                react中有一个React.creatElement中自动转成了 DOM  是一个虚拟创建dom
+            state
+            props
+            数据的通信
+
+
+        1.写class的时候,遇到样式中的class,直接变成className
+        2.标签必需 / 闭合 (特别是单标签要注意)
+        3.{}
+            1)放js代码，可以运行
+            2)默认帮你展开数组 [1,2,3,4] => "1" "2" "3"...
+            3)注释 {} 花括号里边放 //
+            4)可以申明函数，但是不能直接调用
+            5)value={a} 赋值某个元素的属性
+            6)设置行内样式 style={{width:'200px',height:'200px'}}
+
+        4.表单元素设置默认值的时候一定要使用两种方式解决
+            表单设置默认值的时候，会报错，因为它认为input为一个动态组件，是动态就会
+            操作数据（value就一定会发生变化）,一变化，就一定要有事件（onChange）所以才会报错
+
+            两种解决方式：
+                1. 加事件（onChange）<input value="0"  onChange={()=>{}}/>
+                2. 使用defaultValue   <input defaultValue="0" />
+        5.行内样式的写法
+
+
+
+
+
+    // 报错  版本低，需要更新
+    // 先清一下   npm cache clean -f
+
+    ----index.js中要写的
+
+    import React from 'react'; //主要库
+    import ReactDOM from 'react-dom'; //把jsx转成能够让浏览器识别的工具
+    //react-dom是基于react中的，引入的顺序不能发生改变。
+
+    //加上之后   热更新不会出现刷新的跳一下
+    if(module.hot){
+        module.hot.accept();
+    }
+    //挂载组件（根节点的挂载）
+    //render中有三个参数,它是三个参数   
+    //render(组件,挂载的根节点,挂载完之后执行的回调函数)
+    //第三个参数一般不是很用得到
+    ReactDOM.render(
+        <div>你好世界!!!!....</div>,
+        document.getElementById('root'),
+        ()=>{
+            console.log('挂载成功')
+        }
+    );
+
+
+数据之间的通信
+单向数据量，只能父传子 不能子传父  改数据只能父级改
+        //子组件接收  用this.props 
+        let {aa,bb,cc} = this.props;
+
+        1.    <App {...{
+                    aa:'aa',
+                    bb:'bb',
+                    cc:[1,2,3,4]
+                }
+            }></App>
+        
+        2. let obj = {
+            aa:'aa',
+            bb:'bb',
+            cc:[1,2,3,4]
+        }
+        <App ...{obj} />
+        <App a="你好" />
+
+
+        //组件在挂载的时候，会先执行constructor，只会执行一次，
+        //然后经过几个钩子函数之后，走到render,只要数据发生变化 就再执行render,而constructor是不会改变的
+        constructor(props){
+            super(props);
+            console.log(props) //这里也是可以拿到数据的
+        }
+
+
+
+组件之间
+
+1.    import React, { Component } from 'react'; 先结构  再用 
+
+    class App extends Component {
+        render() {
+            return (
+            <div className="App">
+            </div>
+            );
+        }
+    }
+
+2. 如果不先结构  就这样写
+
+    class App extends React.Component {  //这里用了一个React的单词
+        render() {
+            return (
+            <div className="App">
+            </div>
+            );
+        }
+    }
+
+
+3. 函数
+    function Ppa(props){
+        return (
+            <p>这是一个组件</p>
+        )
+    }
+
+
+循环
+    在循环里边,如果数组为组件，那么 传入的数据  要用到key  key值是唯一的
+        {
+            <Li {...{
+                val:ele,
+                key:i
+            }} />
+        }
+
+在input中 用onChange的时候  写方法的时候 ，如果不对函数做处理，this指向  是undefined 需要改一下  有四种方法
+
+    1.change(){}
+        <input value="1" onChange={this.change.bind(this)}/> 
+    2.change(){}
+    <input value="1" onChange={this.change}/> 在constrctor(){ this.change = this.change.bind(this)}
+    3. change = () => {}
+    <input value="1" onChange={this.change}/> 
+    4. change(){}
+    <input value="1" onChange={(e)=>this.change(e)}/> 
+
+state状态 操作状态中的数据，就能操作视图
+        在constructor(){
+            this.state = {}
+        }
+改变数据的状态
+        this.setState({val:1})
+        this.setState有两个参数，第一个是state的数据，第二个是当操作完之后的回调函数
+
+        this.setState(函数(prev) => {return prev+1},()=>{})   第二个是当操作完之后的回调函数
+
+
+
+    2.react全家桶 
+        react react-router-dom redux  mobx 第三方UI库antd
+        react-native(主要是环境的问题)开发原生App
+
+
+    
+
+
+
+
+
+
+
+    vue MVVM框架（渐进式，黏贴性）
+
+
+*/ 
+    
+    
+</script>
+</body>
+</html>
