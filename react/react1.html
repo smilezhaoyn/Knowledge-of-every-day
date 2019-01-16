@@ -185,8 +185,85 @@ state状态 操作状态中的数据，就能操作视图
         react react-router-dom redux  mobx 第三方UI库antd
         react-native(主要是环境的问题)开发原生App
 
+//  date:new Date() 
 
-    
+    this.data中写这样的一个数据
+    date:new Date() 
+
+    在组件中 拿到这个数据要这样写，不然出不来
+    <h2>现在是 {this.state.date.toLocaleTimeString()}</h2>
+
+    view效果
+    现在是 上午11:01:07
+
+子传父级
+
+class Aaa extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            num:0
+        }
+    }
+    ziji = () =>{
+        let {num} = this.state;
+        num += 1;
+        this.setState({num})
+        let {fn} = this.props;
+        fn(1);
+    }
+    render(){
+        return (
+            <div>
+                <button
+                    onClick = {this.ziji}
+                >子组件的{this.state.num}</button>
+                <button>子组件 用的父级传过来的数据{this.props.pn}</button>
+            </div>
+        );
+    }
+}
+
+
+
+class App extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            num:10,
+            date:new Date()
+            
+        }
+    }
+
+    changeNum =(a)=>{
+        let {num} = this.state;
+        num += a;
+        console.log(a)
+        this.setState({num});
+    }
+
+    render(){
+        return (
+            <div>
+                <button
+                    onClick = {()=>{this.changeNum(2)}}
+                >父级的数据{this.state.num}</button>
+                <hr /> 
+                <span>aaaaaaaaaaaa
+                <h2>现在是 {this.state.date.toLocaleTimeString()}</h2>
+                </span>
+                <Aaa {
+                    ...{
+                        pn:this.state.num,
+                        fn:this.changeNum
+                    }
+                }></Aaa>
+            </div>
+        );
+    }
+}
+
 
 
 
