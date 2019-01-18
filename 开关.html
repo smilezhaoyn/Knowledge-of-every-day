@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    .sw{
+        width: 50px;
+        height: 32px;
+        border: 1px solid #dfdfdf;
+        border-radius: 30px;
+        position: relative;
+        outline: none;
+        /* background: hotpink; */
+        /* box-shadow:burlywood 0 0 16px inset; */
+        transition:all 0.2s linear;
+        -webkit-appearance: none; /*//将默认的样式基本清空 */
+    }
+    .sw:checked{
+        box-shadow:burlywood 0 0 16px inset;
+        transition:all 0.2s linear;
+    }
+    .sw::before{
+        content: '';
+        position: absolute;
+        width: 30px;
+        left: 0;
+        top: 0;
+        height: 30px;
+        border-radius: 50%;
+        box-shadow: 1px 1px 2px 0 #dfdfdf;
+        background: #fff;
+        transition:all 0.2s linear;
+    }
+    .sw:checked::before{
+        left: 20px;
+        transition:all 0.2s linear;
+    }
+</style>
+</head>
+<body>
+    <div class="box">
+        <div>
+                <input type="checkbox" class="sw">
+                <p class="txt">关</p>
+        </div>
+    </div>
+
+<script>
+    class Sw{
+        
+        render(){
+            return (
+            `
+            <div>
+                <input type="checkbox" class="sw">
+                <p class="txt">关</p>
+            </div>
+            `
+        )
+        }
+    }
+    let box = document.querySelector('.box')
+    let btn =document.querySelector('.sw');
+    let txt = document.querySelector('.txt')
+    btn.addEventListener('change',function(e){
+    txt.innerHTML =  e.target.checked ? '开':'关';
+    },false)
+
+</script>
+</body>
+</html>
